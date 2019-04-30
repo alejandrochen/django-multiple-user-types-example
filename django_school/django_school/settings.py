@@ -83,10 +83,15 @@ WSGI_APPLICATION = 'django_school.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.environ.get('DB_NAME','oxtest'),
+        'USER': os.environ.get('DB_USER','oxtest'),
+        'PASSWORD': os.environ.get('DB_PASSWORD','oxtest'),
+        'HOST': '192.168.0.10',
+        'PORT': '5432',
     }
 }
+
 
 
 # Internationalization
